@@ -2,24 +2,33 @@ package main
 
 import (
 	"strconv"
-	
+
 	"fyne.io/fyne/app"
 	"fyne.io/fyne/widget"
 )
 
 func main() {
-	c := 0
 	a := app.New()
 	w := a.NewWindow("Hello")
 	l := widget.NewLabel("Hello Fyne!")
+	e := widget.NewEntry()
+	e.SetText("0")
 	w.SetContent(
 		widget.NewVBox(
-			l,
-			widget.NewButton("click me",func(){
-				c++
-				l.SetText("count:"+strconv.Itoa(c))
+			l, e,
+			widget.NewButton("click me", func() {
+				n, _ := strconv.Atoi(e.Text)
+				l.SetText("Total:" + strconv.Itoa(total(n)))
 			}),
 		),
 	)
 	w.ShowAndRun()
+}
+
+func total(n int) int {
+	t := 0
+	for i := 1; i <= n; i++ {
+		t += i
+	}
+	return t
 }
