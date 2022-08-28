@@ -6,6 +6,7 @@ require (
 	fyne.io/fyne v1.4.3 // indirect
 	fyne.io/fyne/v2 v2.2.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/fredbi/uri v0.0.0-20181227131451-3dcfdacbaaf3 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/fyne-io/mobile v0.1.2 // indirect
 	github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6 // indirect
