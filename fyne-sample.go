@@ -9,17 +9,23 @@ func main() {
 	a := app.New()
 	w := a.NewWindow("Hello")
 	l := widget.NewLabel("Hello Fyne!")
-	ne := widget.NewEntry()
-	pe := widget.NewPasswordEntry()
+	ck1 := widget.NewCheck("check 1", nil)
+	ck2 := widget.NewCheck("check 2", nil)
 	w.SetContent(
 		widget.NewVBox(
 			l,
-			widget.NewForm(
-				widget.NewFormItem("Name", ne),
-				widget.NewFormItem("Pass", pe),
+			widget.NewGroup("Group",
+				ck1, ck2,
 			),
 			widget.NewButton("OK", func() {
-				l.SetText(ne.Text + " & " + pe.Text)
+				re := "result: "
+				if ck1.Checked {
+					re += "Check-1 "
+				}
+				if ck2.Checked {
+					re += "Check-2 "
+				}
+				l.SetText(re)
 			}),
 		),
 	)
