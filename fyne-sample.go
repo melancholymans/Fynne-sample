@@ -8,25 +8,16 @@ import (
 func main() {
 	a := app.New()
 	w := a.NewWindow("Hello")
-	l := widget.NewLabel("Hello Fyne!")
-	ck1 := widget.NewCheck("check 1", nil)
-	ck2 := widget.NewCheck("check 2", nil)
 	w.SetContent(
 		widget.NewVBox(
-			l,
-			widget.NewGroup("Group",
-				ck1, ck2,
+			widget.NewTabContainer(
+				widget.NewTabItem("First",
+					widget.NewLabel("This is First tab item"),
+				),
+				widget.NewTabItem("Second",
+					widget.NewLabel("This is Second tab item"),
+				),
 			),
-			widget.NewButton("OK", func() {
-				re := "result: "
-				if ck1.Checked {
-					re += "Check-1 "
-				}
-				if ck2.Checked {
-					re += "Check-2 "
-				}
-				l.SetText(re)
-			}),
 		),
 	)
 	w.ShowAndRun()
