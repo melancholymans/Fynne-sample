@@ -72,7 +72,7 @@ func main() {
 		case "+":
 			data.mem += n
 		case "-":
-			data.mem -= n
+			data.mem = data.mem - n
 		case "*":
 			data.mem *= n
 		case "/":
